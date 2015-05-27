@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
 
   before_filter :get_users
-  before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :set_car, only: [:show, :edit, :update, :destroy, :rent]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /cars
@@ -13,6 +13,9 @@ class CarsController < ApplicationController
   # GET /cars/1
   # GET /cars/1.json
   def show
+  end
+
+  def rent
   end
 
   # GET /cars/new

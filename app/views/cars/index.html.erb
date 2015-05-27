@@ -30,7 +30,7 @@
             </li>
             <% if user_signed_in? %>
             <li class="left">
-              <p><%= link_to 'Rent', rent_path %></p>
+              <p><%= link_to 'Rent', rent_path(car) %></p>
             </li>
             <li class="right">
               <p><%= link_to 'Edit', edit_car_path(car) %></p>

@@ -5,32 +5,37 @@
 		<h2>User Information</h2>
 		<div>
 		  <strong>User Picture:</strong></br>
-		  
+		  <%= image_tag current_user.avatar.url(:medium) %>
 		</div>
-		<p><strong>Full Name:</strong>  </p>
-		<p><strong>Identification:</strong>  </p>
-		<p><strong>Address:</strong>  </p>
-		<p><strong>Phone:</strong>  </p>
-		<p><strong>Cellphone:</strong>  </p>
-		<p><strong>Born date:</strong> </p>
+		<p><strong>Full Name:</strong> <%= current_user.fullname %></p>
+		<p><strong>Identification:</strong> <%= current_user.identification %></p>
+		<p><strong>Address:</strong> <%= current_user.address %></p>
+		<p><strong>Phone:</strong> <%= current_user.phone %></p>
+		<p><strong>Cellphone:</strong> <%= current_user.cellphone %></p>
+		<p><strong>Born date:</strong> <%= current_user.born_date %></p>
 	</fieldset>
 
 	<fieldset class="small-5 columns">
 		<h2>Car Information</h2>
 		<div>
 		  <strong>Car Picture:</strong></br>
+		  <%= image_tag @car.avatar.url(:medium) %>
 		</div>
-		<p><strong>Plate:</strong>  </p>
-		<p><strong>Mileage:</strong>  </p>
-		<p><strong>Capacity:</strong>  </p>
-		<p><strong>Brand:</strong>  </p>
-		<p><strong>Year:</strong>  </p>
-		<p><strong>Color:</strong>  </p>
-		<p><strong>Motor:</strong>  </p>
-		<p><strong>Description:</strong>  </p>
-		<p><strong>Gasoline:</strong>  </p>
-		<p><strong>Transmision:</strong>  </p>
-		<p><strong>Trunk:</strong>  </p>
-		<p><strong>Doors:</strong>  </p>
+		<p><strong>Plate:</strong> <%= @car.plate %></p>
+		<p><strong>Mileage:</strong> <%= @car.mileage %> <% if @car.mileage != nil %> km <% end %></p>
+		<p><strong>Capacity:</strong> <%= @car.capacity %> 
+			<% if @car.capacity > 1 %> people <% else %> person <% end %>
+		</p>
+		<p><strong>Brand:</strong> <%= @car.brand %></p>
+		<p><strong>Year:</strong> <%= @car.year %></p>
+		<p><strong>Color:</strong> <%= @car.color %></p>
+		<p><strong>Motor:</strong> <%= @car.motor %></p>
+		<p><strong>Description:</strong> <%= @car.description %></p>
+		<p><strong>Gasoline:</strong> <%= @car.gasoline %> <% if @car.gasoline != nil %> lt <% end %></p>
+		<p><strong>Transmision:</strong> 
+			<% if @car.transmision == true %> Yes <% else %> No <% end %>
+		</p>
+		<p><strong>Trunk:</strong> <% if @car.trunk == true %> Yes <% else %> No <% end %></p>
+		<p><strong>Doors:</strong> <%= @car.door %></p>
 	</fieldset>
 </div>

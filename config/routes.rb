@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/cars/rent' => 'cars#rent', as: 'rent'
   devise_for :users
   root :to => 'cars#index'
   resources :cars

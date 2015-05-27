@@ -1,47 +1,49 @@
-<h1>Listing cars</h1>
+<section class="content">
+  <h1 class="text-center">Cars <% if user_signed_in? %> <span><%= link_to 'New', new_car_path %></span> <% end %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Plate</th>
-      <th>Mileage</th>
-      <th>Capacity</th>
-      <th>Brand</th>
-      <th>Year</th>
-      <th>Color</th>
-      <th>Motor</th>
-      <th>Description</th>
-      <th>Gasoline</th>
-      <th>Transmision</th>
-      <th>Trunk</th>
-      <th>Door</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <ul class="row">
     <% @cars.each do |car| %>
-      <tr>
-        <td><%= car.plate %></td>
-        <td><%= car.mileage %></td>
-        <td><%= car.capacity %></td>
-        <td><%= car.brand %></td>
-        <td><%= car.year %></td>
-        <td><%= car.color %></td>
-        <td><%= car.motor %></td>
-        <td><%= car.description %></td>
-        <td><%= car.gasoline %></td>
-        <td><%= car.transmision %></td>
-        <td><%= car.trunk %></td>
-        <td><%= car.door %></td>
-        <td><%= link_to 'Show', car %></td>
-        <td><%= link_to 'Edit', edit_car_path(car) %></td>
-        <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li class="small-4 columns">
+        <article class="documents row">
+          <div class=" small-12 columns"><%= image_tag car.avatar.url(:medium) %></div>
+           <hgroup class="text-center small-12 columns">
+             <h5><%= car.brand %></h5>
+             <h6><b>Year: </b><%= car.year %></h6>
+           </hgroup>
+
+          <div class="small-12 columns">
+            <p>
+              <b>Capacity: </b><%= car.capacity %>
+              <% if car.capacity > 1 %>
+              people <% else %> person <% end %>
+            </p>
+            <p><b>Doors: </b><%= car.door %></p>
+            <p>
+              <b>Trunk: </b>
+              <% if car.trunk == true %>
+              Yes <% else %> No <% end %>
+            </p>
+          </div>
+          <ul class="small-12 columns">
+            <li class="left">
+              <p><%= link_to 'Show', car %></p>
+            </li>
+            <% if user_signed_in? %>
+            <li class="left">
+              <p><%= link_to 'Rent', rent_path %></p>
+            </li>
+            <li class="right">
+              <p><%= link_to 'Edit', edit_car_path(car) %></p>
+            </li>
+            <li class="right">
+              <p><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            </li>
+            <% end %>
+          </ul>
+        </article>
+      </li>
     <% end %>
-  </tbody>
-</table>
+  </ul>
+  <br>
+</section>
 
-<br>
-
-<%= link_to 'New Car', new_car_path, class: 'button' %>

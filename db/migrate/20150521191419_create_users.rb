@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :cellphone
       t.date :born_date
       t.integer :identification
+      t.boolean :is_admin
 
       t.timestamps
     end

@@ -1,6 +1,6 @@
 <div>
-  <strong>Car Picture:</strong>
-  <%= image_tag @car.avatar.url(:thumb) %>
+  <strong>Car Picture:</strong></br>
+  <%= image_tag @car.avatar.url(:medium) %>
 </div>
 
 <p>
@@ -10,12 +10,12 @@
 
 <p>
   <strong>Mileage:</strong>
-  <%= @car.mileage %>
+  <%= @car.mileage %> <% if @car.mileage != nil %> km <% end %>
 </p>
 
 <p>
   <strong>Capacity:</strong>
-  <%= @car.capacity %>
+  <%= @car.capacity %> <% if @car.capacity > 1 %> people <% else %> person <% end %>
 </p>
 
 <p>
@@ -45,21 +45,21 @@
 
 <p>
   <strong>Gasoline:</strong>
-  <%= @car.gasoline %>
+  <%= @car.gasoline %> <% if @car.gasoline != nil %> lt <% end %>
 </p>
 
 <p>
   <strong>Transmision:</strong>
-  <%= @car.transmision %>
+  <% if @car.transmision == true %> Yes <% else %> No <% end %>
 </p>
 
 <p>
   <strong>Trunk:</strong>
-  <%= @car.trunk %>
+  <% if @car.trunk == true %> Yes <% else %> No <% end %>
 </p>
 
 <p>
-  <strong>Door:</strong>
+  <strong>Doors:</strong>
   <%= @car.door %>
 </p>
 

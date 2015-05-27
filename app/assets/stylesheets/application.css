@@ -1,0 +1,121 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+
+ */
+
+body {
+	margin:0;
+	padding:0;
+}
+
+header {
+	background:#333333;
+}
+
+header a {
+	font-weight:bold !important;
+}
+
+header nav img {
+	border-radius:50%;
+	margin:0;
+	margin-top:25%;
+}
+
+.red {
+	background-color:#f04124 !important;
+}
+
+.button-color {
+	background:#008cba !important;
+}
+
+body > section {
+	padding-bottom: 40px;
+	border-bottom: solid 1px #F2F2F2;
+}
+
+footer a {
+	color: rgb(51, 52, 52);
+}
+
+footer ul {
+	margin: 0;
+}
+
+footer a:hover {
+	color: #f2672c;
+}
+
+footer ul li {
+	display: inline-block;
+}
+
+.legal, .social-media {
+	padding-top: 10px;
+}
+
+.legal li a {
+	border-right: solid 1px rgb(51, 52, 52);
+	padding: 0 10px;
+}
+
+.legal li:last-child a {
+	border-right: none;
+	padding-right: 0;
+}
+
+.social-media li {
+	background: #686868;
+	border-radius: 50%;
+	margin: 0 5px 0 5px;
+}
+
+.social-media li a {
+	text-indent: -9999px;
+}
+
+.social-media #facebook {
+	background: url(../images/facebook-icon.png) no-repeat !important;
+	display: block;
+	height: 38px;
+	margin: 0 5px;
+	width: 28px;
+}
+
+.social-media #twitter {
+	background: url(../images/twitter-icon.png) no-repeat !important;
+	display: block;
+	height: 25px;
+	margin: 6.5px;
+	width: 25px;
+}
+
+.social-media #youtube {
+	background: url(../images/youtube-icon.png) no-repeat !important;
+	display: block;
+	height: 32px;
+	margin: 3px;
+	width: 32px;
+}
+
+.social-media #instagram {
+	background: url(../images/instagram-icon.png) no-repeat !important;
+	display: block;
+	height: 26px;
+	margin: 6px;
+	width: 26px;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title><%= content_for?(:title) ? yield(:title) : "Car Rental" %></title>
+
+	<%= stylesheet_link_tag	"application" %>
+	<%= javascript_include_tag "vendor/modernizr" %>
+	<%= csrf_meta_tags %>
+</head>
+
+<body>
+	<header>
+		<nav class="top-bar row" data-topbar>
+			<ul class="title-area">
+				<li class="name">
+					<h1><%= link_to 'Car Rental', root_path %></h1>
+				</li>
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+			</ul>
+
+			<section class="top-bar-section">
+			<!-- Right Nav Section -->
+				<ul class="right">
+					<% if user_signed_in? %>
+					<li><%= image_tag current_user.avatar.url(:mini) %></li>
+					<li><%= link_to current_user.fullname, edit_user_registration_path %></li>
+					<li class="red"><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'red' %></li>
+					<% else %>
+					<li><%= link_to 'Sign Up', new_user_registration_path, class: 'button-color' %></li>
+					<li><%= link_to 'Sign In', new_user_session_path %></li>
+					<% end %>
+				</ul>
+
+		<!-- Left Nav Section -->
+				<ul class="left">
+					<li><%= link_to 'Cars', cars_path, class: 'button-color' %></li>
+				</ul>
+			</section>
+		</nav>
+	</header>
+
+	<section class="row">
+		<div class="small-12 columns">
+				<br>
+				<% flash.each do |type, message| %>
+						<div data-alert class="alert-box radius <%= flass_class type %>">
+								<%= message %>
+  							<a href="#" class="close">&times;</a>
+						</div>
+				<% end %>
+				<%= yield %>
+		</div>
+	</section>
+
+	<footer>
+		<div class="wrapper">
+			<div class="row">
+				<ul class="legal small-6 medium-7 columns">
+					<li><a href="#">Terms & Conditions</a></li>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+
+				<ul class="social-media small-6 medium-5 columns">
+					<li class="right"><a id="youtube" href="#">Youtube</a></li>
+					<li class="right"><a id="instagram" href="#">Instagram</a></li>
+					<li class="right"><a id="twitter" href="#">Twitter</a></li>
+					<li class="right"><a id="facebook" href="#">Facebook</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+
+
+    <%= javascript_include_tag "application" %>
+</body>
+</html>
